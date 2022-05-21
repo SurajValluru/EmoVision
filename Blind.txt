@@ -1,0 +1,33 @@
+Help Blind:
+If you know the person
+Expressions
+Live Cam or Take picture
+Give selection b/w morse n custom vibrations, or speak
+UI should be interactable
+
+Pros:
+Can read emotions
+Can identify persons
+
+Cons:
+Can't interact, need a third person
+
+Meet:
+Android -> Java
+Machine Learning -> Python
+Web or Native
+Vibration is not support in all browsers and mobiles
+To use volume buttons, we need native android app
+
+Use python to train models
+Use those models to build native app
+
+
+To Do:
+Documentation
+Description
+Multi/No Face picture
+Requirements.txt
+Learn Vibrations implementation
+
+You Need to be online

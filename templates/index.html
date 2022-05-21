@@ -1,0 +1,21 @@
+{% extends 'base.html'%}{% block content %}
+
+<link rel="stylesheet" href="../static/style.css" />
+<!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
+
+<h1 class="head"><span class="headTxt">EmoVision Web App</span></h1>
+
+<div class="stream">
+    <img src="{{ url_for('video') }}" alt="Live Camera Emotion Feed" class="cam"/>
+</div>
+
+<button onclick="play('happy')">play</button>
+
+<audio id="audio" src="../static/happy.mp3"></audio>
+<script src="../static/play.js"></script>
+<!-- <script src="{{url_for('static', filename='play.js')}}"></script> -->
+<!-- <script type="text/javascript" src="{{ url_for('static', filename='play.js') }}"></script> -->
+<!-- <py-script> print('Now you can!') </py-script> -->
+
+{% endblock %}
