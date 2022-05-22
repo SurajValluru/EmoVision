@@ -31,3 +31,7 @@ Requirements.txt
 Learn Vibrations implementation
 
 You Need to be online
+
+Add Universal Language
+
+Web Client should receive camera feed
