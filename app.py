@@ -5,13 +5,31 @@ app=Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',current_emotion = predicted_emotion)
+
+# def rGen(camera):
+#     while True:
+#         return camera.get_frame()
+
+predicted_emotion = 'loading'
+
+# def cur_emotion():
+#     while True:
+#         yield emotion
+
+@app.route('/emotion')
+def emotion():
+    # return Response(cur_emotion(),mimetype='text/x-mixed-replace; boundary=emotion')
+    return predicted_emotion
 
 def gen(camera):
     while True:
         frame=camera.get_frame()
+        global predicted_emotion 
+        predicted_emotion = frame[1]
+        
         yield(b'--frame\r\n'
-        b'Content-Type:  image/jpeg\r\n\r\n' + frame +
+        b'Content-Type:  image/jpeg\r\n\r\n' + frame[0] +
         b'\r\n\r\n')
 
 @app.route('/video')

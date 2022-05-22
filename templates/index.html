@@ -10,9 +10,11 @@
     <img src="{{ url_for('video') }}" alt="Live Camera Emotion Feed" class="cam"/>
 </div>
 
+<div><object data="{{url_for('emotion')}}"></object></div>
+<body>{{current_emotion}}</body>
 <button onclick="play('happy')">play</button>
 
-<audio id="audio" src="../static/happy.mp3"></audio>
+<audio id="audio" src="../static/audios/happy.mp3"></audio>
 <script src="../static/play.js"></script>
 <!-- <script src="{{url_for('static', filename='play.js')}}"></script> -->
 <!-- <script type="text/javascript" src="{{ url_for('static', filename='play.js') }}"></script> -->

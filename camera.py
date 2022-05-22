@@ -1,3 +1,4 @@
+from encodings import utf_8
 from deepface import DeepFace
 import cv2
 
@@ -27,6 +28,7 @@ class Video(object):
         ret,img=self.video.read()
         img = cv2.flip(img,1)
         faces_detected = face_haar_cascade.detectMultiScale(img, 1.32, 5)
+        predicted_emotion =''
         # for (x, y, w, h) in faces_detected:
         if len(faces_detected)==1:
             x,y,w,h = faces_detected[0]
@@ -39,4 +41,4 @@ class Video(object):
         else:
             img = cv2.imread('images/Multi.jpg')
         ret,jpg=cv2.imencode('.jpg',img)
-        return jpg.tobytes()
+        return jpg.tobytes(), predicted_emotion
