@@ -38,7 +38,9 @@ class Video(object):
             cv2.putText(img, predicted_emotion, (int(x),int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255),2)
         elif len(faces_detected) == 0:
             img = cv2.imread('images/No Face.jpg')
+            predicted_emotion = 'no'
         else:
             img = cv2.imread('images/Multi.jpg')
+            predicted_emotion = 'multi'
         ret,jpg=cv2.imencode('.jpg',img)
         return jpg.tobytes(), predicted_emotion

@@ -1,5 +1,5 @@
 from gtts import gTTS
 
-txt = "fear"
+txt = "Please Wait"
 txtObj = gTTS(txt)
-txtObj.save(txt+'.mp3')
+txtObj.save('loading'+'.mp3')

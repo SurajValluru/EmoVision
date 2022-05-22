@@ -19,7 +19,8 @@ def gen(camera):
         frame=camera.get_frame()
         global predicted_emotion 
         predicted_emotion = frame[1]
-        
+        with open('static/emotion.txt','w+') as emo:
+            emo.writelines(predicted_emotion)
         yield(b'--frame\r\n'
         b'Content-Type:  image/jpeg\r\n\r\n' + frame[0] +
         b'\r\n\r\n')

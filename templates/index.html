@@ -13,13 +13,14 @@
     class="cam"
   />
 </div>
-<!-- <body id="emotion">
-    {{current_emotion}}
-</body> -->
-<div id="emotion"><object data="{{url_for('emotion')}}"></object></div>
-<button onclick="reload('emotion');play('happy');">play</button>
 
-<audio id="audio" src="../static/audios/happy.mp3"></audio>
+<button onclick="play_audio();">play</button>
+
+<!-- <button onclick="reload('emotion');play_audio();">play</button> -->
+<!-- <div id="emotion"><object id="emotion_obj" data="{{url_for('emotion')}}"></object></div> -->
+
+<!-- <div id="audio_div"><audio id = "audio" src="../static/audios/{{current_emotion}}.mp3"></audio></div> -->
+
 <script src="../static/play.js"></script>
 <!-- <script src="{{url_for('static', filename='play.js')}}"></script> -->
 <!-- <script type="text/javascript" src="{{ url_for('static', filename='play.js') }}"></script> -->
