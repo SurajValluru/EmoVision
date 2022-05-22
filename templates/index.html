@@ -7,12 +7,17 @@
 <h1 class="head"><span class="headTxt">EmoVision Web App</span></h1>
 
 <div class="stream">
-    <img src="{{ url_for('video') }}" alt="Live Camera Emotion Feed" class="cam"/>
+  <img
+    src="{{ url_for('video') }}"
+    alt="Live Camera Emotion Feed"
+    class="cam"
+  />
 </div>
-
-<div><object data="{{url_for('emotion')}}"></object></div>
-<body>{{current_emotion}}</body>
-<button onclick="play('happy')">play</button>
+<!-- <body id="emotion">
+    {{current_emotion}}
+</body> -->
+<div id="emotion"><object data="{{url_for('emotion')}}"></object></div>
+<button onclick="reload('emotion');play('happy');">play</button>
 
 <audio id="audio" src="../static/audios/happy.mp3"></audio>
 <script src="../static/play.js"></script>
