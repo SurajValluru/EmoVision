@@ -5,22 +5,13 @@ app=Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html',current_emotion = predicted_emotion)
-
-predicted_emotion = 'loading'
-
-@app.route('/emotion')
-def emotion():
-    # return Response(cur_emotion(),mimetype='text/x-mixed-replace; boundary=emotion')
-    return predicted_emotion
+    return render_template('index.html')
 
 def gen(camera):
     while True:
         frame=camera.get_frame()
-        global predicted_emotion 
-        predicted_emotion = frame[1]
         with open('static/emotion.txt','w+') as emo:
-            emo.writelines(predicted_emotion)
+            emo.writelines(frame[1])
         yield(b'--frame\r\n'
         b'Content-Type:  image/jpeg\r\n\r\n' + frame[0] +
         b'\r\n\r\n')

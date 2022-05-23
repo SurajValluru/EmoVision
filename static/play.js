@@ -1,13 +1,11 @@
-function reload(id){
-  var container = document.getElementById(id);
-  var content = container.innerHTML;
-  container.innerHTML= content; 
-  console.log("Refreshed"); 
-}
+// function reload(id){
+//   var container = document.getElementById(id);
+//   var content = container.innerHTML;
+//   container.innerHTML= content; 
+//   console.log("Refreshed"); 
+// }
 
 function play_audio() {
-  let audio='default';
-
   fetch('static/emotion.txt')
   .then(response => response.text())
   .then(data => {
