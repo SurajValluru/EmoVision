@@ -6,15 +6,12 @@
 
 <h1 class="head"><span class="headTxt">EmoVision Web App</span></h1>
 
-<div class="stream">
-  <img
-    src="{{ url_for('video') }}"
-    alt="Live Camera Emotion Feed"
-    class="cam"
-  />
-</div>
+<video id="video" width="640" height="480" autoplay muted></video>
+<canvas id="canvas" width="640" height="480"></canvas>
 
-<button onclick="play_audio();">play</button>
+<button id="play" onclick="send_img(); play_audio();">play</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <script src="../static/play.js"></script>
 <!-- <py-script> print('Now you can!') </py-script> -->
