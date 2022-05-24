@@ -29,9 +29,25 @@ function send_img() {
 
   // data url of the image
   console.log(image_data_url);
-  $.post("/postimage", {
-    javascript_data: image_data_url,
+  return new Promise((resolve) => {
+    hey = $.post("/postimage", {
+      javascript_data: image_data_url,
+    });
+    resolve(hey);
   });
+}
+
+function play_audio(){
+  $.get("/getemotion", function (data) {
+    const audio_mp3 = new Audio("static/audios/" + data + ".mp3");
+    audio_mp3.play();
+    console.log(data);
+  });
+}
+
+async function send_play() {
+  await send_img();
+  play_audio();
 }
 
 function closingCode() {
@@ -42,15 +58,3 @@ function closingCode() {
 }
 
 window.onbeforeunload = closingCode;
-
-let delay = 400;
-
-function play_audio() {
-  setTimeout(function () {
-    $.get("/getemotion", function (data) {
-      const audio_mp3 = new Audio("static/audios/" + data + ".mp3");
-      audio_mp3.play();
-      console.log(data);
-    });
-  }, delay);
-}
