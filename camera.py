@@ -29,10 +29,8 @@ def emoDetect(img):
             img, ('emotion',), enforce_detection=False)
         predicted_emotion = predictions['dominant_emotion']
     elif len(faces_detected) == 0:
-        img = cv2.imread('static/images/No Face.jpg')
         predicted_emotion = 'no'
     else:
-        img = cv2.imread('static/images/Multi.jpg')
         predicted_emotion = 'multi'
     with open('static/emotion.txt', 'w+') as emo:
         emo.writelines(predicted_emotion)
