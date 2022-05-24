@@ -17,7 +17,7 @@
 }
 
 .cam {
-  background-color: orangered;
+  /* background-color: transparent; */
   padding: 10px;
   border-radius: 5px;
   max-width: 100%;
@@ -66,7 +66,7 @@ body {
   height: 100%;
   width: 100%;
   place-items: center;
-  background: linear-gradient(315deg, #ffffff, #d7e1ec);
+  background: linear-gradient(315deg, #ffffff, #007bff);
 }
 
 .wrapper {
@@ -75,6 +75,7 @@ body {
 }
 
 .wrapper .icon {
+  max-width: 100px;
   position: relative;
   background: #ffffff;
   border-radius: 50%;
@@ -130,37 +131,31 @@ body {
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper .facebook:hover,
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip::before {
+.wrapper .english:hover,
+.wrapper .english:hover .tooltip,
+.wrapper .english:hover .tooltip::before {
   background: #1877F2;
   color: #ffffff;
 }
 
-.wrapper .twitter:hover,
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
-  background: #1DA1F2;
+.wrapper .universal:hover,
+.wrapper .universal:hover .tooltip,
+.wrapper .universal:hover .tooltip::before {
+  background: #81c341;
   color: #ffffff;
 }
 
-.wrapper .instagram:hover,
-.wrapper .instagram:hover .tooltip,
-.wrapper .instagram:hover .tooltip::before {
+.wrapper .custom:hover,
+.wrapper .custom:hover .tooltip,
+.wrapper .custom:hover .tooltip::before {
   background: #E4405F;
   color: #ffffff;
 }
 
-.wrapper .github:hover,
-.wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip::before {
+.wrapper .morse:hover,
+.wrapper .morse:hover .tooltip,
+.wrapper .morse:hover .tooltip::before {
   background: #333333;
   color: #ffffff;
 }
 
-.wrapper .youtube:hover,
-.wrapper .youtube:hover .tooltip,
-.wrapper .youtube:hover .tooltip::before {
-  background: #CD201F;
-  color: #ffffff;
-}
