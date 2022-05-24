@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request
 from camera import url_to_image, emoDetect
-
+import cv2
 app = Flask(__name__)
+
+emotion = 'loading'
 
 
 @app.route('/')
@@ -9,20 +11,26 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/postmethod', methods=['POST'])
-def get_post_javascript_data():
+@app.route('/postimage', methods=['POST'])
+def post_img_url():
     jsdata = request.form['javascript_data']
     img = url_to_image(jsdata)
-    emoDetect(img)
+    global emotion
+    emotion = emoDetect(img)
     return jsdata
 
 
-@app.route('/postmethodclose', methods=['POST'])
-def get_post_close():
+@app.route('/postclose', methods=['POST'])
+def post_close():
     jsdata = request.form['javascript_data']
-    with open('static/emotion.txt', 'w+') as emo:
-        emo.writelines(jsdata)
+    global emotion
+    emotion = 'loading'
     return jsdata
+
+
+@app.route('/getemotion')
+def get_emotion():
+    return emotion
 
 
 if(__name__ == '__main__'):

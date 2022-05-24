@@ -19,9 +19,10 @@
 .cam {
   background-color: orangered;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   max-width: 90%;
-  height: auto;
+  /* height: auto; */
+  object-fit: cover;
 }
 
 .speak{

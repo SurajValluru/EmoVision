@@ -22,7 +22,7 @@ face_haar_cascade = cv2.CascadeClassifier(cv2.data.haarcascades +
 
 def emoDetect(img):
     img = cv2.flip(img, 1)
-    faces_detected = face_haar_cascade.detectMultiScale(img, 1.1, 10)
+    faces_detected = face_haar_cascade.detectMultiScale(img)
     predicted_emotion = ''
     if len(faces_detected) == 1:
         predictions = DeepFace.analyze(
@@ -32,5 +32,4 @@ def emoDetect(img):
         predicted_emotion = 'no'
     else:
         predicted_emotion = 'multi'
-    with open('static/emotion.txt', 'w+') as emo:
-        emo.writelines(predicted_emotion)
+    return predicted_emotion

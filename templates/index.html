@@ -6,8 +6,10 @@
 
 <h1 class="head"><span class="headTxt">EmoVision Web App</span></h1>
 
-<video id="video" width="640" height="480" autoplay muted></video>
-<canvas id="canvas" width="640" height="480"></canvas>
+<video id="video" class="cam" width="480" height="480" autoplay muted></video>
+<canvas hidden id="canvas" class="cam" width="480" height="480"></canvas>
+<!-- Uncomment for debugging -->
+<!-- <canvas id="canvas" class="cam" width="480" height="480"></canvas> -->
 
 <button id="play" onclick="send_img(); play_audio();">play</button>
 
