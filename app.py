@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from camera import url_to_image, emoDetect
-import cv2
+
 app = Flask(__name__)
 
 emotion = 'loading'

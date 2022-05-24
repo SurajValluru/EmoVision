@@ -4,18 +4,39 @@
 <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
 <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
 
-<h1 class="head"><span class="headTxt">EmoVision Web App</span></h1>
-
-<video id="video" class="cam" width="480" height="480" autoplay muted></video>
+<video onclick="send_img(); play_audio();" id="video" class="cam" width="480" height="480" autoplay muted></video>
 <canvas hidden id="canvas" class="cam" width="480" height="480"></canvas>
 <!-- Uncomment for debugging -->
 <!-- <canvas id="canvas" class="cam" width="480" height="480"></canvas> -->
 
-<button id="play" onclick="send_img(); play_audio();">play</button>
+<!-- <button id="play" onclick="send_img(); play_audio();">play</button> -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <script src="../static/play.js"></script>
 <!-- <py-script> print('Now you can!') </py-script> -->
 
+<ul class="wrapper">
+    <li class="icon facebook">
+      <span class="tooltip">Facebook</span>
+      <span><i class="fab fa-facebook-f"></i></span>
+    </li>
+    <li class="icon twitter">
+      <span class="tooltip">Twitter</span>
+      <span><i class="fab fa-twitter"></i></span>
+    </li>
+    <li class="icon instagram">
+      <span class="tooltip">Instagram</span>
+      <span><i class="fab fa-instagram"></i></span>
+    </li>
+    <li class="icon github">
+      <span class="tooltip">Github</span>
+      <span><i class="fab fa-github"></i></span>
+    </li>
+    <li class="icon youtube">
+      <span class="tooltip">Youtube</span>
+      <span><i class="fab fa-youtube"></i></span>
+    </li>
+  </ul>
+  <script src="https://kit.fontawesome.com/a7cea1fce8.js" crossorigin="anonymous"></script>
 {% endblock %}
