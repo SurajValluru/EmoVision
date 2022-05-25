@@ -1,12 +1,3 @@
-'''
-VARIABLE KEY
-'cipher' -> 'stores the morse translated form of the english string'
-'decipher' -> 'stores the english translated form of the morse string'
-'citext' -> 'stores morse code of a single character'
-'i' -> 'keeps count of the spaces between morse characters'
-'message' -> 'stores the string to be encoded or decoded'
-'''
-
 # Dictionary representing the morse code chart
 MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
 					'C':'-.-.', 'D':'-..', 'E':'.',
@@ -24,9 +15,12 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
 					'?':'..--..', '/':'-..-.', '-':'-....-',
 					'(':'-.--.', ')':'-.--.-'}
 
-# Function to encrypt the string
-# according to the morse code chart
-def encrypt(message):
+
+
+def encrypt(message) -> str:
+	"""Returns morse-code encrypted string.
+	
+	Function to encrypt the string according to the morse code chart"""
 	cipher = ''
 	for letter in message:
 		if letter != ' ':
@@ -43,9 +37,12 @@ def encrypt(message):
 
 	return cipher
 
-# Function to decrypt the string
-# from morse to english
-def decrypt(message):
+
+
+def decrypt(message) -> str:
+	"""Returns morse-code decrypted string.
+	
+	Function to decrypt the string from morse to english"""
 
 	# extra space added at the end to access the
 	# last morse code
@@ -85,13 +82,13 @@ def decrypt(message):
 
 # Hard-coded driver function to run the program
 def main():
-	message = input('Type: ')
+	message = "Hello My Friend"
 	result = encrypt(message.upper())
 	print (result)
 
-	# message = ".... . .-.. .-.. ---  -- -.--  ..-. .-. .. . -. -.."
-	# result = decrypt(message)
-	# print (result)
+	message = ".... . .-.. .-.. ---  -- -.--  ..-. .-. .. . -. -.."
+	result = decrypt(message)
+	print (result)
 
 # Executes the main function
 if __name__ == '__main__':
