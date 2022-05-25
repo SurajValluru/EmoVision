@@ -73,7 +73,7 @@ function act(action) {
     if (action == "universal" || action == "english")
       play_audio(action, emotion);
     else if (action == "morse") vibrate_dit_dash(MORSE_DICT[emotion]);
-    else if(action == "custom") vibrate_dit_dash(CUSTOM_DICT[emotion]);
+    else if (action == "custom") vibrate_dit_dash(CUSTOM_DICT[emotion]);
   });
 }
 
@@ -102,6 +102,20 @@ async function send_play() {
   }
 }
 
+window.addEventListener("load", () => {
+  document.body.classList.remove("preload");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav");
+  document.querySelector("#btnNav").addEventListener("click", () => {
+    nav.classList.add("nav--open");
+  });
+  document.querySelector(".nav__overlay").addEventListener("click", () => {
+    nav.classList.remove("nav--open");
+  });
+});
+
 let MORSE_DICT = {
   angry: ".- -. --. .-. -.--",
   disgust: "-.. .. ... --. ..- ... -",
@@ -125,6 +139,7 @@ let CUSTOM_DICT = {
   sad: ".....",
   surprise: "....",
 };
+
 // Can be 'user' or 'environment' to access back or front camera
 var facingMode = "user";
 // var facingMode = "environment";
