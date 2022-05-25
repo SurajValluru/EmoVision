@@ -54,15 +54,24 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 async function vibrate_dit_dash(message) {
   let unit = 100;
   for (i = 0; i < message.length; i++) {
-    if (message[i] == ".") {
-      navigator.vibrate(unit);
-      await delay(unit);
-    } else if (message[i] == "-") {
-      navigator.vibrate(3 * unit);
-      await delay(3 * unit);
-    } else if (message[i] == " ") await delay(2 * unit);
-    if (message[i] + message[i + 1] == "  ") await delay(unit);
-    await delay(unit);
+    switch (message[i]) {
+      case ".":
+        navigator.vibrate(unit);
+        await delay(2 * unit);
+        break;
+      case "-":
+        navigator.vibrate(3 * unit);
+        await delay(4 * unit);
+        break;
+      case " ":
+        await delay(3 * unit);
+        if (message[i + 1] == " ") await delay(unit);
+        break;
+      default:
+        window.alert(
+          "Custom messages are corrupted. Please clear cookies in you browser."
+        );
+    }
   }
   console.log(message);
 }
@@ -70,51 +79,35 @@ async function vibrate_dit_dash(message) {
 function act(action) {
   $.get("/getemotion", function (emotion) {
     console.log(action, emotion);
-    if (action == "universal" || action == "english")
-      play_audio(action, emotion);
-    else if (action == "morse") vibrate_dit_dash(MORSE_DICT[emotion]);
-    else if (action == "custom") vibrate_dit_dash(CUSTOM_DICT[emotion]);
+
+    switch (action) {
+      case "universal":
+      case "english":
+        play_audio(action, emotion);
+        break;
+      case "morse":
+        vibrate_dit_dash(MORSE_DICT[emotion]);
+        break;
+      case "custom":
+        vibrate_dit_dash(CUSTOM_DICT[emotion]);
+        break;
+      default:
+        window.alert(
+          "Cookies are corrupted. Please clear cookies in you browser."
+        );
+    }
   });
 }
 
 async function send_play() {
   await send_img();
   let cook = Cookies.get("action");
-
-  switch (cook) {
-    case undefined:
-      cook = "universal";
-      Cookies.set("action", cook);
-    case "universal":
-      act(cook);
-      break;
-    case "english":
-      act(cook);
-      break;
-    case "custom":
-    case "morse":
-      act(cook);
-      break;
-    default:
-      window.alert(
-        "Cookies are corrupted. Please clear cookies in you browser."
-      );
+  if (cook == undefined) {
+    cook = "universal";
+    Cookies.set("action", "universal");
   }
+  act(cook);
 }
-
-window.addEventListener("load", () => {
-  document.body.classList.remove("preload");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector(".nav");
-  document.querySelector("#btnNav").addEventListener("click", () => {
-    nav.classList.add("nav--open");
-  });
-  document.querySelector(".nav__overlay").addEventListener("click", () => {
-    nav.classList.remove("nav--open");
-  });
-});
 
 let MORSE_DICT = {
   angry: ".- -. --. .-. -.--",
