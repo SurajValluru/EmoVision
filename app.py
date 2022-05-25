@@ -3,8 +3,6 @@ from camera import url_to_image, emoDetect
 
 app = Flask(__name__)
 
-emotion = 'loading'
-
 
 @app.route('/')
 def index():
@@ -17,14 +15,6 @@ def post_img_url():
     img = url_to_image(jsdata)
     global emotion
     emotion = emoDetect(img)
-    return jsdata
-
-
-@app.route('/postclose', methods=['POST'])
-def post_close():
-    jsdata = request.form['javascript_data']
-    global emotion
-    emotion = 'loading'
     return jsdata
 
 
