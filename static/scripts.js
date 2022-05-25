@@ -16,7 +16,6 @@ async function start_cam() {
   video.srcObject = stream;
 }
 
-
 function send_img() {
   canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height,
     0,0,video.width,video.height);
@@ -32,7 +31,7 @@ function send_img() {
     });
   }
   
-  function play(action){
+  function act(action){
     $.get("/getemotion", function (data) {
       console.log(data);
       if(action == 'universal' || action == 'english'){
@@ -50,10 +49,10 @@ function send_img() {
     case undefined:
       Cookies.set('action','universal');
     case 'universal':
-      play(cook);
+      act(cook);
       break;
     case 'english':
-      play(cook);
+      act(cook);
       break;
     case 'custom':
     case 'morse':

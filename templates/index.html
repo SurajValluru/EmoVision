@@ -1,29 +1,32 @@
 {% extends 'base.html'%}{% block content %}
 
 <link rel="stylesheet" href="../static/style.css" />
-<!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-<script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
 
 <div>
-<video onclick="send_play();" id="video" class="cam" width="480" height="480" autoplay muted></video>
-</div><canvas hidden id="canvas" class="cam" width="480" height="480"></canvas>
-<!-- Uncomment for debugging -->
-<!-- <canvas id="canvas" class="cam" width="480" height="480"></canvas> -->
+  <video
+    onclick="send_play();"
+    id="video"
+    class="cam"
+    width="480"
+    height="480"
+    autoplay
+    muted
+  ></video>
+</div>
 
-<!-- <button id="play" onclick="send_img(); play_audio();">play</button> -->
+<canvas hidden id="canvas" class="cam" width="480" height="480"></canvas>
 
-<!-- <py-script> print('Now you can!') </py-script> -->
-
-<ul class="wrapper">
-  <li class="icon english" onclick="setCookie('english')">
-    <span class="tooltip">Speak</span>
-    <span><i class="fa-solid fa-volume-high"></i></span>
-  </li>
-  <li class="icon universal" onclick="setCookie('universal')">
+<div class="actions">
+  <ul class="wrapper">
+    <li class="icon english" onclick="setCookie('english')">
+      <span class="tooltip">English</span>
+      <span><i class="fa-solid fa-volume-high"></i></span>
+    </li>
+    <li class="icon universal" onclick="setCookie('universal')">
       <span class="tooltip">Universal</span>
       <span><i class="fa-solid fa-globe"></i></span>
     </li>
-    <li class="icon custom"  onclick="setCookie('custom')">
+    <li class="icon custom" onclick="setCookie('custom')">
       <span class="tooltip">Custom</span>
       <span><i class="fa-solid fa-sliders"></i></span>
     </li>
@@ -32,10 +35,12 @@
       <span><i class="fa-solid fa-terminal"></i></span>
     </li>
   </ul>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-  <script src="https://kit.fontawesome.com/a7cea1fce8.js" crossorigin="anonymous"></script>
-  <script src="../static/scripts.js"></script>
-  {% endblock %}
-  
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<script
+  src="https://kit.fontawesome.com/a7cea1fce8.js"
+  crossorigin="anonymous"
+></script>
+<script src="../static/scripts.js"></script>
+{% endblock %}
