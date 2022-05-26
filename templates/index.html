@@ -2,41 +2,46 @@
 
 <link rel="stylesheet" href="../static/styles/style.css" />
 
-<div>
-  <video
-    onclick="send_play();"
-    id="video"
-    class="cam"
-    width="480"
-    height="480"
-    autoplay
-    muted
-  ></video>
-</div>
+<!-- Camera Feed -->
+<video
+  onclick="send_play();"
+  id="video"
+  class="cam"
+  width="480"
+  height="480"
+  autoplay
+  muted
+></video>
+<!-- Camera Feed -->
 
+<!-- Canvas to capture image -->
 <canvas id="canvas" class="cam" width="480" height="480"></canvas>
 
-<div class="actions">
-  <ul class="wrapper">
-    <li class="icon english" onclick="setCookie('english')">
-      <span class="tooltip">English</span>
-      <span><i class="fa-solid fa-volume-high"></i></span>
-    </li>
-    <li class="icon universal" onclick="setCookie('universal')">
-      <span class="tooltip">Universal</span>
-      <span><i class="fa-solid fa-globe"></i></span>
-    </li>
-    <li class="icon custom" onclick="setCookie('custom')">
-      <span class="tooltip">Custom</span>
-      <span><i class="fa-solid fa-sliders"></i></span>
-    </li>
-    <li class="icon morse" onclick="setCookie('morse')">
-      <span class="tooltip">Morse</span>
-      <span><i class="fa-solid fa-terminal"></i></span>
-    </li>
-  </ul>
-</div>
+<!-- Actions -->
+<ul class="wrapper">
+  <li class="icon english" onclick="setCookie('english')">
+    <span class="tooltip">English</span>
+    <span><i class="fa-solid fa-volume-high"></i></span>
+  </li>
+  <li class="icon universal" onclick="setCookie('universal')">
+    <span class="tooltip">Universal</span>
+    <span><i class="fa-solid fa-globe"></i></span>
+  </li>
+  <li class="icon custom" onclick="setCookie('custom')">
+    <span class="tooltip">Custom</span>
+    <span><i class="fa-solid fa-sliders"></i></span>
+  </li>
+  <li class="icon morse" onclick="setCookie('morse')">
+    <span class="tooltip">Morse</span>
+    <span><i class="fa-solid fa-terminal"></i></span>
+  </li>
+</ul>
+<!-- Actions -->
+
+<!-- For GET and POST http methods -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- To store Cookies in browser -->
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<!-- Get our script -->
 <script src="../static/scripts/script.js"></script>
 {% endblock %}
