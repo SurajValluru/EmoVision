@@ -62,7 +62,7 @@ body {
 }
 
 .nav__link--active {
-  color: #1e0095;
+  color: #356ac6;
 }
 
 .nav__link--active,
@@ -86,4 +86,21 @@ body {
 .nav--open .nav__overlay {
   visibility: visible;
   opacity: 1;
+}
+
+#title{
+  color: #ffffff;
+  place-content: center;
+  font-size: 2rem;
+  font-family: 'Brush Script MT', cursive;
+  margin: 0;
+  top: 50%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: linear-gradient(315deg, #ffffff, #007bff);
 }

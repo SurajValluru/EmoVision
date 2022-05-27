@@ -51,7 +51,7 @@ function play_audio(action, emotion) {
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-async function vibrate_dit_dash(message) {
+async function vibrate_dit_dash(message, action) {
   let unit = 100;
   for (i = 0; i < message.length; i++) {
     switch (message[i]) {
@@ -65,11 +65,11 @@ async function vibrate_dit_dash(message) {
         break;
       case " ":
         await delay(3 * unit);
-        if (message[i + 1] == " ") await delay(unit);
+        if (action == "morse" && message[i + 1] == " ") await delay(unit);
         break;
       default:
         window.alert(
-          "Custom messages are corrupted. Please clear cookies in you browser."
+          "Cookies are corrupted. Please clear cookies in you browser."
         );
     }
   }
@@ -79,17 +79,16 @@ async function vibrate_dit_dash(message) {
 function act(action) {
   $.get("/getemotion", function (emotion) {
     console.log(action, emotion);
-
     switch (action) {
       case "universal":
       case "english":
         play_audio(action, emotion);
         break;
       case "morse":
-        vibrate_dit_dash(MORSE_DICT[emotion]);
+        vibrate_dit_dash(MORSE_DICT[emotion], action);
         break;
       case "custom":
-        vibrate_dit_dash(CUSTOM_DICT[emotion]);
+        vibrate_dit_dash(Cookies.get(emotion), action);
         break;
       default:
         window.alert(
@@ -109,7 +108,10 @@ async function send_play() {
   act(cook);
 }
 
-let MORSE_DICT = {
+const active = document.querySelector("#home");
+active.classList.add("nav__link--active");
+
+const MORSE_DICT = {
   angry: ".- -. --. .-. -.--",
   disgust: "-.. .. ... --. ..- ... -",
   fear: "..-. . .- .-.",
@@ -121,7 +123,7 @@ let MORSE_DICT = {
   surprise: "... ..- .-. .--. .-. .. ... .",
 };
 
-let CUSTOM_DICT = {
+const CUSTOM_DICT = {
   angry: "...",
   disgust: ".......",
   fear: "......",
@@ -133,9 +135,14 @@ let CUSTOM_DICT = {
   surprise: "....",
 };
 
+CUSTOM_KEYS = Object.keys(CUSTOM_DICT);
+
+config = Cookies.get("custom");
+if (config == undefined) default_all();
+
 // Can be 'user' or 'environment' to access back or front camera
-var facingMode = "user";
-// var facingMode = "environment";
+let facingMode = "user";
+// let facingMode = "environment";
 
 // if(facingMode == "user"){
 // video.setAttribute(  "transform", "rotateY(180deg)");

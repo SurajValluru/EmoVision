@@ -1,0 +1,34 @@
+{% extends 'base.html'%}{% block content %}
+<link rel="stylesheet" href="../static/styles/config.css" />
+<h3>Terminology</h3>
+<ul>
+  <li>' . ' for short vibrations</li>
+  <li>' - ' for long vibrations</li>
+  <li>' ' for no vibration vibrations</li>
+</ul>
+<!-- <div>sfdalk</div> -->
+<span>Choose an emotion:</span>
+
+<select name="cus_emotion" id="emotion">
+  <option value="happy">Happy</option>
+  <option value="neutral">Neutral</option>
+  <option value="angry">Angry</option>
+  <option value="sad">Sad</option>
+  <option value="surprise">Surprise</option>
+  <option value="fear">Fear</option>
+  <option value="disgust">Disgust</option>
+</select>
+
+<form>
+  <input type="text" id="code" />
+  <button onclick="set_code()">Set</button>
+</form>
+
+<br />
+<br />
+<button onclick="default_all()">Reset to defaults</button>
+
+<!-- To store Cookies in browser -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<script src="../static/scripts/config.js"></script>
+{% endblock %}

@@ -13,7 +13,6 @@
   margin: 0 auto;
   /* height: auto; */
   justify-content: center;
-
   object-fit: cover;
 }
 
@@ -36,10 +35,6 @@
 html,
 body {
   display: grid;
-  height: 100%;
-  width: 100%;
-  place-items: center;
-  background: linear-gradient(315deg, #ffffff, #007bff);
 }
 
 .wrapper {

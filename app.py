@@ -22,6 +22,21 @@ def post_img_url():
 def get_emotion():
     return emotion
 
+# Tutorial Page
+@app.route('/howto')
+def howTo():
+    return render_template('howto.html')
+
+# Custom Config Page
+@app.route('/config')
+def config():
+    return render_template('config.html')
+
+# About Us Page
+@app.route('/aboutme')
+def aboutMe():
+    return render_template('aboutme.html')
+
 # Checking if this file is run from another file or not
 if(__name__ == '__main__'):
     app.run(debug=True)
