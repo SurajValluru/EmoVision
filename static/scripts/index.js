@@ -22,13 +22,7 @@ function send_img() {
     .drawImage(
       video,
       0,
-      0,
-      canvas.width,
-      canvas.height,
-      0,
-      0,
-      video.width,
-      video.height
+      0
     );
   let image_data_url = canvas.toDataURL("image/jpeg");
 
