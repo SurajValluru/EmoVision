@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  background-color: white;
+  max-width: 350px;
+  padding: 25px 30px;
+  border-radius: 5px;
+  /* flex-wrap: wrap; */
+  overflow: scroll;
+  max-width: 80%;
+  max-height: 80%;
+  place-items: center;
+  display: block;
+}
+
+.container * {
+  margin: 0px;
+}
+
+body {
+  font-size: small;
+  place-content: center;
+  padding: 10px;
+}

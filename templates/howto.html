@@ -1,4 +1,43 @@
 {% extends 'base.html'%}{% block content %}
-Under Development
+<link rel="stylesheet" href="../static/styles/howto.css" />
+<div class="container">
+  <h2>Tutorial</h2>
+  Tap on Camera Feed to know emotion of the person. Camera can be changed in
+  Configurations. The responses are of Four Types:
+  <ul>
+    <li>Speak</li>
+    <li>Universal</li>
+    <li>Custom</li>
+    <li>Morse</li>
+  </ul>
+  <h4>Speak</h4>
+  Speak response gives audio clip with the current emotion in English on
+  default. Language can be changed in Configurations.
+  <h4>Universal</h4>
+  Universal response gives audio clip with sound of that emotion, which can be
+  understood by everyone without language constraint.
+  <h4>Custom</h4>
+  Custom response gives vibration feedback to mobile. This custom vibrations can
+  be changed in Configurations. Default custom codes are:
+  <ul>
+    <li>angry: "..."</li>
+    <li>disgust: "......."</li>
+    <li>fear: "......"</li>
+    <li>happy: "."</li>
+    <li>multi: "-.-"</li>
+    <li>neutral: ".."</li>
+    <li>no: "--"</li>
+    <li>sad: "....."</li>
+    <li>surprise: "...."</li>
+  </ul>
+  Custom Action Terminology:
+  <ul>
+    <li>' . ' for short vibrations</li>
+    <li>' - ' for long vibrations</li>
+    <li>' ' for no vibration vibrations</li>
+  </ul>
+  <h4>Morse</h4>
+  Morse response gives vibration feedback to mobile with morse code.
+  <br />
+</div>
 {% endblock %}
-
