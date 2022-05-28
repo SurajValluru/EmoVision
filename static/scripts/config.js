@@ -15,6 +15,11 @@ function set_code() {
     }
 }
 
+function set_lang(){
+  const lang = document.getElementById("lang").value;
+  Cookies.set("lang",lang)
+}
+
 function set_duration(){
   const duration = document.getElementById("duration").value;
   Cookies.set("duration_unit",duration);

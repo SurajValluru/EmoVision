@@ -37,6 +37,9 @@ function send_img() {
 }
 
 function play_audio(action, emotion) {
+  console.log(action);
+  (action=="speak")?action=action+"/"+Cookies.get("lang"):0;
+  console.log(action);
   const audio_mp3 = new Audio(
     "static/audios/" + action + "/" + emotion + ".mp3"
   );
@@ -75,7 +78,7 @@ function act(action) {
     console.log(action, emotion);
     switch (action) {
       case "universal":
-      case "english":
+      case "speak":
         play_audio(action, emotion);
         break;
       case "morse":

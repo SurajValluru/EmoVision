@@ -16,5 +16,5 @@ function default_all() {
   for (let i = 0; i < 7; i++)
     Cookies.set(CUSTOM_KEYS[i], CUSTOM_DICT[CUSTOM_KEYS[i]]);
   Cookies.set("custom", "true");
-  Cookies.set("duration_unit", 100);
+  Cookies.set("lang", "en");
 }
