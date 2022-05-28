@@ -36,4 +36,15 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <!-- Get our script -->
 <script src="../static/scripts/index.js"></script>
+<script>
+  // true for mobile device
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    let checkAngle = event.target.screen.orientation.angle;
+    if (checkAngle == "180" || checkAngle == "0") window.location.replace("/");
+  }
+</script>
 {% endblock %}

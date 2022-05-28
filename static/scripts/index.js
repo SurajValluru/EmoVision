@@ -141,24 +141,18 @@ if (config == undefined) default_all();
 let facingMode = "user";
 // let facingMode = "environment";
 
-function detectMob() {
-  const toMatch = [
-      /Android/i,
-      /webOS/i,
-      /iPhone/i,
-      /iPad/i,
-      /iPod/i,
-      /BlackBerry/i,
-      /Windows Phone/i
-  ];
-  
-  return toMatch.some((toMatchItem) => {
-      return navigator.userAgent.match(toMatchItem);
-  });
-}
 
 start_cam().catch(function (err) {
   if (err == "NotAllowedError: Permission denied")
     window.alert("Web app requires camera permission to work.");
   else window.alert("Unknown Error Occured");
+});
+
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+window.addEventListener("orientationchange", event => {
+  let oAngle = event.target.screen.orientation.angle;
+  if(oAngle=='90'||oAngle=='270')
+  window.location.replace("/desktop");
+  else if(oAngle == '180'||oAngle=='0')
+  window.location.replace("/");
 });
