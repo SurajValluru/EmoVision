@@ -19,12 +19,10 @@
   <option value="disgust">Disgust</option>
 </select>
 
-<form>
-  <input type="text" id="code" />
-  <button onclick="set_code()">Set</button>
-</form>
-<br />
-<br />
+<input type="text" id="code" placeholder="Char Limit: 50" maxlength="50" />
+<button id="code_submit" onclick="set_code()">Set</button>
+
+<br /><br />
 <span>Choose a Language:</span>
 <select name="lang" id="lang">
   <option value="en">English</option>
@@ -37,10 +35,9 @@
   <option value="ta">Tamil</option>
 </select>
 
-  <button onclick="set_lang()">Set</button>
+<button onclick="set_lang()">Set</button>
 
-<br />
-<br />
+<br /><br />
 <button onclick="default_all()">Reset to defaults</button>
 
 <!-- To store Cookies in browser -->
