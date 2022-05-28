@@ -95,6 +95,12 @@ body {
   font-family: 'Brush Script MT', cursive;
   margin: 0;
   top: 50%;
+  margin-left: 10px;
+}
+
+#logo{
+  margin:  5px;
+border-radius: 30%;
 }
 
 html,

@@ -22,7 +22,9 @@ function send_img() {
     .drawImage(
       video,
       0,
-      0
+      0,
+      canvas.width,
+      canvas.height
     );
   let image_data_url = canvas.toDataURL("image/jpeg");
 
@@ -37,9 +39,7 @@ function send_img() {
 }
 
 function play_audio(action, emotion) {
-  console.log(action);
   (action=="speak")?action=action+"/"+Cookies.get("lang"):0;
-  console.log(action);
   const audio_mp3 = new Audio(
     "static/audios/" + action + "/" + emotion + ".mp3"
   );
