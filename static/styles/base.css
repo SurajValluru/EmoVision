@@ -108,5 +108,10 @@ body {
   height: 100%;
   width: 100%;
   place-items: center;
-  background: linear-gradient(315deg, #ffffff, #007bff);
+  background: linear-gradient(315deg, #71b7e8, #9b59b6);
+  display: flex;
+}
+
+.nav__link{
+  font-size: large;
 }

@@ -141,11 +141,21 @@ if (config == undefined) default_all();
 let facingMode = "user";
 // let facingMode = "environment";
 
-// if(facingMode == "user"){
-// video.setAttribute(  "transform", "rotateY(180deg)");
-// video.setAttribute(  "-webkit-transform", "rotateY(180deg)");
-// video.setAttribute(  "-moz-transform", "rotateY(180deg)");
-// }
+function detectMob() {
+  const toMatch = [
+      /Android/i,
+      /webOS/i,
+      /iPhone/i,
+      /iPad/i,
+      /iPod/i,
+      /BlackBerry/i,
+      /Windows Phone/i
+  ];
+  
+  return toMatch.some((toMatchItem) => {
+      return navigator.userAgent.match(toMatchItem);
+  });
+}
 
 start_cam().catch(function (err) {
   if (err == "NotAllowedError: Permission denied")

@@ -8,7 +8,7 @@
   id="video"
   class="cam"
   width="480"
-  height="480"
+  height="640"
   autoplay
   muted
 ></video>
@@ -44,4 +44,10 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <!-- Get our script -->
 <script src="../static/scripts/index.js"></script>
+<script>
+  if (!detectMob()){
+    window.alert("Not a mobile device!!!\nForwarding to desktop version.");
+    window.location.replace("/desktop");
+  }
+</script>
 {% endblock %}

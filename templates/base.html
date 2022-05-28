@@ -16,8 +16,8 @@
       <button class="header__button" id="btnNav" type="button">
         <i class="fa-solid fa-bars"></i>
       </button>
-      <img id="logo" src="/static/favicon.png" />
-      <span id="title">EmoVision</span>
+      <img id="logo" src="/static/favicon.png" alt="logo" onclick="window.location.replace('/')" style="cursor:pointer"  />
+      <span id="title" onclick="window.location.replace('/')" style="cursor:pointer">EmoVision</span>
     </header>
     <!-- Header -->
     
@@ -27,6 +27,10 @@
         <a href="/" class="nav__link" id="home">
           <i class="fa-solid fa-house"></i>
           Home
+        </a>
+        <a href="/desktop" class="nav__link" id="desktop">
+          <i class="fa-solid fa-desktop"></i></i>
+          Desktop
         </a>
         <a href="/howto" class="nav__link" id="how_to">
           <i class="fa-solid fa-person-chalkboard"></i>
@@ -44,15 +48,15 @@
       <div class="nav__overlay"></div>
     </nav>
     <script src="../static/scripts/base.js"></script>
-    <!-- Navigation Links -->
-
-    {% block content %} {% endblock %}
-
-    <!-- Icons -->
     <script
       src="https://kit.fontawesome.com/a7cea1fce8.js"
       crossorigin="anonymous"
     ></script>
+    <!-- Navigation Links -->
+    
+    {% block content %} {% endblock %}
+    
+    <!-- Icons -->
     <!-- Get our base script -->
   </body>
 </html>

@@ -1,0 +1,39 @@
+{% extends 'base.html'%}{% block content %}
+
+<link rel="stylesheet" href="../static/styles/index.css" />
+
+<!-- Camera Feed -->
+<video
+  onclick="send_play();"
+  id="video"
+  class="cam"
+  width="640"
+  height="480"
+  autoplay
+  muted
+></video>
+<!-- Camera Feed -->
+
+<!-- Canvas to capture image -->
+<canvas id="canvas" class="cam" width="640" height="480"></canvas>
+
+<!-- Actions -->
+<ul class="wrapper">
+  <li class="icon english" onclick="setCookie('speak')">
+    <span class="tooltip">Speak</span>
+    <span><i class="fa-solid fa-volume-high"></i></span>
+  </li>
+  <li class="icon universal" onclick="setCookie('universal')">
+    <span class="tooltip">Universal</span>
+    <span><i class="fa-solid fa-globe"></i></span>
+  </li>
+</ul>
+<!-- Actions -->
+
+<!-- For GET and POST http methods -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- To store Cookies in browser -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<!-- Get our script -->
+<script src="../static/scripts/index.js"></script>
+{% endblock %}

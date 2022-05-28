@@ -22,6 +22,11 @@ def post_img_url():
 def get_emotion():
     return emotion
 
+# For desktop
+@app.route('/desktop')
+def desktop():
+    return render_template('desktop.html')
+
 # Tutorial Page
 @app.route('/howto')
 def howTo():
