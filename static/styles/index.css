@@ -131,3 +131,16 @@ body {
   background: #333333;
   color: #ffffff;
 }
+
+#pos_alert{
+  /* display: block; */
+  /* font-size: xx-large; */
+  color: #ffffff;
+  font-size: 25vmax;
+  z-index: 5;
+  visibility: hidden;
+  position: fixed;
+  justify-content: center;
+  top:0px;
+  width: 100%;
+}

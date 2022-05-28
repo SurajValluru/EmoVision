@@ -6,6 +6,7 @@
       navigator.userAgent
     )
   ) {
+    window.alert("Not a mobile device.\nRedirecting to desktop version.")
     window.location.replace("/desktop");
   }
 </script>
@@ -26,7 +27,7 @@
 
 <!-- Canvas to capture image -->
 <canvas id="canvas" class="cam" width="480" height="640"></canvas>
-
+  <i id="pos_alert" class="fa-solid fa-rotate fa-5x"></i>
 <!-- Actions -->
 <ul class="wrapper">
   <li class="icon english" onclick="setCookie('speak')">
@@ -50,8 +51,6 @@
 
 <!-- For GET and POST http methods -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<!-- To store Cookies in browser -->
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <!-- Get our script -->
 <script src="../static/scripts/index.js"></script>
 {% endblock %}

@@ -16,32 +16,13 @@ function set_code() {
     }
 }
 
-function set_lang() {
-  const lang = document.getElementById("lang").value;
-  Cookies.set("lang", lang);
-}
-
-function set_duration() {
-  const duration = document.getElementById("duration").value;
-  Cookies.set("duration_unit", duration);
+function set(id) {
+  const set = document.getElementById(id).value;
+  if (set != "") Cookies.set(id, set);
 }
 
 const active = document.querySelector("#custom_config");
 active.classList.add("nav__link--active");
-
-let CUSTOM_DICT = {
-  angry: "...",
-  disgust: ".......",
-  fear: "......",
-  happy: ".",
-  multi: "-.-",
-  neutral: "..",
-  no: "--",
-  sad: ".....",
-  surprise: "....",
-};
-
-let CUSTOM_KEYS = Object.keys(CUSTOM_DICT);
 
 const code = document.getElementById("code");
 code.addEventListener("keyup", function (event) {
@@ -51,6 +32,3 @@ code.addEventListener("keyup", function (event) {
     code.blur();
   }
 });
-
-custom = Cookies.get("custom");
-if (custom == undefined) default_all();

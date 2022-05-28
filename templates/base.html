@@ -7,6 +7,9 @@
     <title>EmoVision</title>
     <link rel="icon" type="image/png" href="/static/favicon.png" />
     <link rel="stylesheet" href="../static/styles/base.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   
   <body class="preload">
@@ -17,7 +20,7 @@
         <i class="fa-solid fa-bars"></i>
       </button>
       <img id="logo" src="/static/favicon.png" alt="logo" onclick="window.location.replace('/')" style="cursor:pointer"  />
-      <span id="title" onclick="window.location.replace('/')" style="cursor:pointer">EmoVision</span>
+      <span id="title" onclick="window.location.replace('/')" style="cursor:pointer" ><i><b>EmoVision</b></i></span>
     </header>
     <!-- Header -->
     
@@ -45,18 +48,19 @@
           About Me
         </a>
       </div>
-      <div class="nav__overlay"></div>
+      <div id="overlay"></div>
     </nav>
+    <!-- To store Cookies in browser -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <!-- Get our base script -->
     <script src="../static/scripts/base.js"></script>
+    <!-- Icons -->
     <script
       src="https://kit.fontawesome.com/a7cea1fce8.js"
       crossorigin="anonymous"
     ></script>
-    <!-- Navigation Links -->
-    
+
     {% block content %} {% endblock %}
-    
-    <!-- Icons -->
-    <!-- Get our base script -->
+
   </body>
 </html>

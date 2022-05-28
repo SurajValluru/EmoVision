@@ -2,7 +2,7 @@ body {
   --header-height: 50px;
 
   margin: var(--header-height) 0 0 0;
-  font-family: "Muli", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .preload * {
@@ -70,7 +70,7 @@ body {
   background: linear-gradient(315deg, #eeeeee, #9b59b6);
 }
 
-.nav__overlay {
+#overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -84,7 +84,7 @@ body {
   transition: opacity 0.3s;
 }
 
-.nav--open .nav__overlay {
+.nav--open #overlay {
   visibility: visible;
   opacity: 1;
 }
@@ -93,7 +93,7 @@ body {
   color: #ffffff;
   place-content: center;
   font-size: 2rem;
-  font-family: "Brush Script MT", cursive;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   top: 50%;
   margin-left: 10px;

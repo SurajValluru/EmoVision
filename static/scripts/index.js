@@ -5,27 +5,19 @@ function setCookie(action) {
   Cookies.set("action", action);
 }
 
-async function start_cam() {
+async function start_cam(facingMode) {
   let stream = await navigator.mediaDevices.getUserMedia({
     video: {
+      // Can be 'user' or 'environment' to access back or front camera
       facingMode: facingMode,
     },
-    // video: true,
     audio: false,
   });
   video.srcObject = stream;
 }
 
 function send_img() {
-  canvas
-    .getContext("2d")
-    .drawImage(
-      video,
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
+  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
   let image_data_url = canvas.toDataURL("image/jpeg");
 
   // data url of the image
@@ -39,7 +31,7 @@ function send_img() {
 }
 
 function play_audio(action, emotion) {
-  (action=="speak")?action=action+"/"+Cookies.get("lang"):0;
+  action == "speak" ? (action = action + "/" + Cookies.get("lang")) : 0;
   const audio_mp3 = new Audio(
     "static/audios/" + action + "/" + emotion + ".mp3"
   );
@@ -120,39 +112,26 @@ const MORSE_DICT = {
   surprise: "... ..- .-. .--. .-. .. ... .",
 };
 
-const CUSTOM_DICT = {
-  angry: "...",
-  disgust: ".......",
-  fear: "......",
-  happy: ".",
-  multi: "-.-",
-  neutral: "..",
-  no: "--",
-  sad: ".....",
-  surprise: "....",
-};
-
-CUSTOM_KEYS = Object.keys(CUSTOM_DICT);
-
-config = Cookies.get("custom");
-if (config == undefined) default_all();
-
-// Can be 'user' or 'environment' to access back or front camera
-let facingMode = "user";
-// let facingMode = "environment";
-
-
-start_cam().catch(function (err) {
+start_cam(Cookies.get("cam")).catch(function (err) {
   if (err == "NotAllowedError: Permission denied")
     window.alert("Web app requires camera permission to work.");
   else window.alert("Unknown Error Occured");
 });
 
-if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-window.addEventListener("orientationchange", event => {
-  let oAngle = event.target.screen.orientation.angle;
-  if(oAngle=='90'||oAngle=='270')
-  window.location.replace("/desktop");
-  else if(oAngle == '180'||oAngle=='0')
-  window.location.replace("/");
-});
+let overlay_style = document.getElementById("overlay").style;
+let pos_alert_style = document.getElementById("pos_alert").style;
+function orientation_change(boo) {
+  overlay_style.visibility = boo ? "visible" : "hidden";
+  overlay_style.opacity = boo;
+  pos_alert_style.visibility = boo ? "visible" : "hidden";
+}
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+)
+  window.addEventListener("orientationchange", (event) => {
+    let oAngle = event.target.screen.orientation.angle;
+    if (oAngle == "90" || oAngle == "270") orientation_change(1);
+    else if (oAngle == "180" || oAngle == "0") orientation_change(0);
+  });

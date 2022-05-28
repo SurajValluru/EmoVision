@@ -14,6 +14,7 @@
   color: #ffffff;
   border: none;
   background: linear-gradient(315deg, #71b7e8, #9b59b6);
+  border-radius: 5px;
 }
 
 .set:hover {
@@ -26,8 +27,9 @@
 }
 
 body {
-    place-content: center;
-    padding: 20px;
+  font-size: small;
+  place-content: center;
+    padding: 10px;
 }
 
 #reset {
@@ -48,16 +50,16 @@ body {
     margin-top: 100px;
 }
 
-.emo_div,.lang_div{
+.emo_div,.lang_div,.cam_div{
     background-color: #e0e0e0;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
 }
 
 .container {
   width: 100%;
   background-color: white;
-  max-width: 300px;
+  max-width: 350px;
   padding: 25px 30px;
   border-radius: 5px;
   /* flex-wrap: wrap; */
@@ -82,4 +84,7 @@ body {
 
 .container *{
     margin:0px;
+}
+.container .emo_div,.container .cam_div,.container .lang_div{
+  margin: 15px;
 }
