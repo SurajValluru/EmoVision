@@ -3,13 +3,13 @@ from camera import url_to_image, emoDetect
 
 app = Flask(__name__)
 
-# Home Page
-@app.route('/')
+
+@app.route('/') # Home Page
 def index():
     return render_template('index.html')
 
-# Receiving capture image from client to process
-@app.route('/postimage', methods=['POST'])
+
+@app.route('/postimage', methods=['POST']) # Receiving capture image
 def post_img_url():
     jsdata = request.form['javascript_data']
     img = url_to_image(jsdata)
@@ -17,31 +17,31 @@ def post_img_url():
     emotion = emoDetect(img)
     return jsdata
 
-# Send predicted emotion to web client
-@app.route('/getemotion')
+
+@app.route('/getemotion') # Send predicted emotion to client
 def get_emotion():
     return emotion
 
-# For desktop
-@app.route('/desktop')
+
+@app.route('/desktop') # For desktop
 def desktop():
     return render_template('desktop.html')
 
-# Tutorial Page
-@app.route('/howto')
+
+@app.route('/howto') # Tutorial Page
 def howTo():
     return render_template('howto.html')
 
-# Custom Config Page
-@app.route('/config')
+
+@app.route('/config') # Custom Config Page
 def config():
     return render_template('config.html')
 
-# About Us Page
-@app.route('/aboutme')
+
+@app.route('/aboutme') # About Us Page
 def aboutMe():
     return render_template('aboutme.html')
 
-# Checking if this file is run from another file or not
-if(__name__ == '__main__'):
+
+if(__name__ == '__main__'): # Checking if file is run at __main__
     app.run(debug=True)

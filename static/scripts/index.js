@@ -5,6 +5,7 @@ function setCookie(action) {
   Cookies.set("action", action);
 }
 
+// Start Cam
 async function start_cam(facingMode) {
   let stream = await navigator.mediaDevices.getUserMedia({
     video: {
@@ -18,10 +19,10 @@ async function start_cam(facingMode) {
 
 function send_img() {
   canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-  let image_data_url = canvas.toDataURL("image/jpeg");
 
   // data url of the image
-  // console.log(image_data_url);
+  let image_data_url = canvas.toDataURL("image/jpeg");
+
   return new Promise((resolve) => {
     returned_post = $.post("/postimage", {
       javascript_data: image_data_url,
@@ -54,6 +55,7 @@ async function vibrate_dit_dash(message, action) {
         break;
       case " ":
         await delay(3 * unit);
+        // This extra unit is for morse code conventions
         if (action == "morse" && message[i + 1] == " ") await delay(unit);
         break;
       default:
@@ -97,6 +99,7 @@ async function send_play() {
   act(cook);
 }
 
+// Highlights active option in nav menu
 const active = document.querySelector("#home");
 active.classList.add("nav__link--active");
 
@@ -120,11 +123,15 @@ start_cam(Cookies.get("cam")).catch(function (err) {
 
 let overlay_style = document.getElementById("overlay").style;
 let pos_alert_style = document.getElementById("pos_alert").style;
+
+// Triggers when orientation of device is changed
 function orientation_change(boo) {
   overlay_style.visibility = boo ? "visible" : "hidden";
   overlay_style.opacity = boo;
   pos_alert_style.visibility = boo ? "visible" : "hidden";
 }
+
+// Checks if the device is mobile or not
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent

@@ -21,9 +21,11 @@ function set(id) {
   if (set != "") Cookies.set(id, set);
 }
 
+// Highlights active option in nav menu
 const active = document.querySelector("#custom_config");
 active.classList.add("nav__link--active");
 
+// To submit input when 'Enter' is pressed
 const code = document.getElementById("code");
 code.addEventListener("keyup", function (event) {
   if (event.key == "Enter") {

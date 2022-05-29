@@ -1,5 +1,6 @@
 {% extends 'base.html'%}{% block content %}
 <link rel="stylesheet" href="../static/styles/aboutme.css" />
+<!-- import Google Fonts -->
 <link rel="preconnect" href="http://fonts.googleapis.com" />
 <link rel="preconnect" href="http://fonts.gstatic.com" crossorigin />
 <link
@@ -9,14 +10,18 @@
 
 <section class="about">
   <div class="content">
-    <img src="https://bn02pap001files.storage.live.com/y4m7WjXwv6MK9r5W_ipN5ntKToYOgj2aG95aBxiR4HSff3Utxto4UfqmdRM7VWQhxfuXSUsCbX2ks8cNN7Tpy_WaDEvAqjnZzVOM74VMinAb3t5E30BC-J9Erq7-ePc72jCaOYRJjM-b6yo1sAtDb6_NWaGFXuVKy1ApMgmWGY7_U1vnxOFoign6JohZ85eX-U7W6--BBRT4tpYN6Qzh1iYgg/Photo.png?psid=1&width=603&height=603&cropMode=center" alt="Suraj's Pic" />
+    <!-- image uploaded to cloud -->
+    <img
+      src="https://bn02pap001files.storage.live.com/y4m7WjXwv6MK9r5W_ipN5ntKToYOgj2aG95aBxiR4HSff3Utxto4UfqmdRM7VWQhxfuXSUsCbX2ks8cNN7Tpy_WaDEvAqjnZzVOM74VMinAb3t5E30BC-J9Erq7-ePc72jCaOYRJjM-b6yo1sAtDb6_NWaGFXuVKy1ApMgmWGY7_U1vnxOFoign6JohZ85eX-U7W6--BBRT4tpYN6Qzh1iYgg/Photo.png?psid=1&width=603&height=603&cropMode=center"
+      alt="Suraj's Pic"
+    />
     <div class="text">
       <h1>About Me</h1>
       <h5>Suraj Valluru</h5>
       <p>
         I'm currently pursuing Bachelors in Computer Science Engineering at
-        Maulana Azad National Institute of Technology, India. I consider myself a
-        quick-learner and tech enthusiast with zeal to solve real-world
+        Maulana Azad National Institute of Technology, India. I consider myself
+        a quick-learner and tech enthusiast with zeal to solve real-world
         problems.
       </p>
       <a href="https://www.linkedin.com/in/vallurusuraj/" target="_blank"
@@ -29,5 +34,9 @@
   </div>
 </section>
 
-<script src="../static/scripts/aboutme.js"></script>
+<script>
+  // Highlights active option in nav menu
+  const active = document.querySelector("#about_me");
+  active.classList.add("nav__link--active");
+</script>
 {% endblock %}
