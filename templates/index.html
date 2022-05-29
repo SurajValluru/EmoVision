@@ -6,7 +6,7 @@
       navigator.userAgent
     )
   ) {
-    window.alert("Not a mobile device.\nRedirecting to desktop version.")
+    window.alert("Not a mobile device.\nRedirecting to desktop version.");
     window.location.replace("/desktop");
   }
 </script>
@@ -27,7 +27,7 @@
 
 <!-- Canvas to capture image -->
 <canvas id="canvas" class="cam" width="480" height="640"></canvas>
-  <i id="pos_alert" class="fa-solid fa-rotate fa-5x"></i>
+<i id="pos_alert" class="fa-solid fa-rotate fa-5x"></i>
 <!-- Actions -->
 <ul class="wrapper">
   <li class="icon english" onclick="setCookie('speak')">
@@ -53,4 +53,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- Get our script -->
 <script src="../static/scripts/index.js"></script>
+<script>
+  // Highlights active option in nav menu
+  const active = document.querySelector("#home");
+  active.classList.add("nav__link--active");
+</script>
 {% endblock %}

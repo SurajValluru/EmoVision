@@ -99,10 +99,6 @@ async function send_play() {
   act(cook);
 }
 
-// Highlights active option in nav menu
-const active = document.querySelector("#home");
-active.classList.add("nav__link--active");
-
 const MORSE_DICT = {
   angry: ".- -. --. .-. -.--",
   disgust: "-.. .. ... --. ..- ... -",

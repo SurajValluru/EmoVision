@@ -96,11 +96,10 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   top: 50%;
-  margin-left: 10px;
+  font-weight: bold;
 }
 
 #logo {
-  margin: 5px;
   border-radius: 30%;
 }
 

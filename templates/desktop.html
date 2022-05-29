@@ -1,5 +1,15 @@
 {% extends 'base.html'%}{% block content %}
-
+<script>
+  // true for mobile device
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    window.alert("Using smobile device.\nRedirecting to mobile version.");
+    window.location.replace("/");
+  }
+</script>
 <link rel="stylesheet" href="../static/styles/index.css" />
 
 <!-- Camera Feed -->
@@ -34,5 +44,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- Get our script -->
 <script src="../static/scripts/index.js"></script>
-
+<script>
+  // Highlights active option in nav menu
+  const active = document.querySelector("#desktop");
+  active.classList.add("nav__link--active");
+</script>
 {% endblock %}
